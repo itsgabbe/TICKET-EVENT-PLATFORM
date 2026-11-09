@@ -1,0 +1,36 @@
+{
+  "name": "ticketing-platform",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Platform tiket event/konser (Kelompok B) - microservices: auth, gateway, event, order, worker (message queue)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start:auth": "node src/auth-service.js",
+    "start:gateway": "node src/gateway.js",
+    "start:event": "node src/event-service.js",
+    "start:order": "node src/order-service.js",
+    "start:worker": "node src/worker.js",
+    "smoke": "node scripts/smoke.mjs",
+    "gen:jwk": "node scripts/gen-jwk.mjs",
+    "test": "node --test test/orders.test.js test/inventory.test.js test/gateway-ratelimit.test.js",
+    "test:unit": "node --test test/orders.test.js test/inventory.test.js",
+    "test:gateway": "node --test test/gateway-ratelimit.test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^5.0.0",
+    "cors": "^2.8.6",
+    "express": "^4.22.3",
+    "express-rate-limit": "^8.7.2",
+    "graphql": "^16.11.0",
+    "helmet": "^8.3.0",
+    "ioredis": "^6.0.0",
+    "jose": "^6.2.15",
+    "pg": "^8.23.1",
+    "rate-limit-redis": "^6.0.2",
+    "zod": "^4.6.7"
+  }
+}
